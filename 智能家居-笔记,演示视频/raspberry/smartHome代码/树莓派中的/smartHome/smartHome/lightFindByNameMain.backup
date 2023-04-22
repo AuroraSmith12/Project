@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include "contrlEquipments.h"
+
+struct Equipment* findDeviceByName(char *name, struct Equipment *pdeviceHead)
+{
+	while(pdeviceHead != NULL)
+	{
+	if(strcmp(name, pdeviceHead->equipName) == 0)
+	{
+		printf("找到了\n");
+		return pdeviceHead;
+	}
+	pdeviceHead = pdeviceHead->next;
+	}
+	printf("没找到\n");
+	return NULL;
+}
+
+
+int main()
+{
+	struct Equipment *rcv = NULL;
+	char name[100];
+	if(wiringPiSetup() == -1){								//使用wiringPi库，需初始化硬件				  
+		printf("wiringPiSetup failed!\n");
+		return -1; 
+	}
+
+	struct Equipment *pequipHead = NULL;				              //定义初始链表头
+	pequipHead = addBathroomLightToEquipmentLink(pequipHead );        //“浴室灯”加入设备链表
+	pequipHead = addSecondfloorLightToEquipmentLink(pequipHead );	  //“二楼灯”加入设备链表
+	pequipHead = addLivingroomLightToEquipmentLink(pequipHead );	  //“客厅灯”加入设备链表
+	pequipHead = addRestaurantLightToEquipmentLink(pequipHead );	  //“餐厅灯”加入设备链表
+
+	struct Equipment *tmp = pequipHead ;
+	while(tmp != NULL){					//继电器功能测试，打开链表上所有灯
+		tmp->Init(tmp->pinNum);         //先初始化
+		tmp->close(tmp->pinNum);
+		tmp = tmp->next;
+
+	}
+
+	printf("please input device's name\n");
+	scanf("%s",name);
+	rcv = findDeviceByName(name,pequipHead);
+	rcv->open(rcv->pinNum);
+
+	return 0;
+}
+

@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <string.h>
+#include "inputCommand.h"
+#include <pthread.h>
+#include <unistd.h>
+
+struct Command *findCommandByName(char *name,struct Command *phead);		//寻找链节函数声明
+void *socketControlThread(void *data);			//“网络控制”线程函数声明
+void *socketReadThread(void *data);				//“读取端口”线程函数声明
+
+struct Command *cmdhead = NULL;					//创建“指令”链表全局变量
+struct Command *socketHandler = NULL;			//创建“链节处理”全局变量
+
+int main()
+{
+	cmdhead = addSocketControlToCommandLink(cmdhead);		//“网络控制”对象加入链表
+
+	pthread_t socketControl_thread;
+	pthread_create(&socketControl_thread,NULL,socketControlThread,NULL);	//创建“网络控制”线程
+
+	pthread_join(socketControl_thread, NULL);		//主函数等待“网络控制”线程退出
+	return 0;
+}
+
+void *socketControlThread(void *data)				//“网络控制”线程
+{
+	int c_fd;											//文件描述符
+	struct sockaddr_in c_addr;
+	memset(&c_addr,0,sizeof(struct sockaddr_in));
+	socklen_t clen = sizeof(struct sockaddr_in);
+	pthread_t socketRead_thread;						//存放线程 ID
+
+
+	socketHandler = findCommandByName("socketControl",cmdhead);			//寻找并返回“网络控制”所处链节
+	if(socketHandler == NULL){											//若找不到
+		printf("find socketHandler error\n");
+		pthread_exit(NULL);
+	}
+	if(socketHandler->Init(socketHandler) < 0){							//执行“网络控制”功能初始化函数
+		printf("socketControl init error\n");
+		pthread_exit(NULL);
+	}
+
+
+	while(1){//不断等待连接 只要有连接进来，就创建线程去对接
+		c_fd = accept(socketHandler->s_fd,(struct sockaddr*)&c_addr,&clen);		//接收连接请求
+		socketHandler->fd = c_fd;												//发送文件描述符
+
+		pthread_create(&socketRead_thread,NULL,socketReadThread,NULL);			//创建“读取端口”线程 连接一个客户端就去对接 可接纳10个客户端
+	}
+}
+//创建新线程：用于读取TCP端口指令
+//只要有连接，就创建线程去对接。线程共用内存资源，同一时刻，所有设备只有一种状态。也可PV操作
+//所有线程 只操控一个结构体 再新来一个线程(新手机客户端接入) 前一个客户端失效 因为c_fd被改了。fork()可实现多个客户端同时控制
+//不过好像寄存器和内存不是完全同步的 可能缓存没改？还可以多个客户端同时控制？
+//如果直接把socketReadThread()拿过来循环的话，则同时刻不能接受新的客户端接入了，因为循环卡在了socketReadThread()函数里面了
+
+
+//“读取端口”线程
+void *socketReadThread(void *data)	//实际没传参			
+{	
+	int nread;
+	memset(socketHandler->command,'\0',sizeof(socketHandler->command));		//每次读取前，清空 “command（存放指令）”
+	nread = read(socketHandler->fd,socketHandler->command,sizeof(socketHandler->command));		//读取客户端并存放到 “command”
+	if(nread == 0){
+		printf("No command received\n");
+	}else{
+		printf("Get command:%s\n",socketHandler->command);			//读取成功，打印数据
+	}
+
+}
+
+struct Command *findCommandByName(char *name,struct Command *phead)			//通过“名字”寻找链节函数
+{
+	struct Command *tmp = phead;
+
+	if(phead == NULL){
+		return NULL;
+	}
+
+	while(tmp != NULL){
+		if(strcmp(name,tmp->commandName) == 0){
+			return tmp;
+		}
+		tmp = tmp->next;
+	}
+	return NULL;
+}
+

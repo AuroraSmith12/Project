@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <string.h>
+#include "inputCommand.h"
+#include <pthread.h>
+#include <unistd.h>
+
+struct Command *addVoiceControlToCommandLink(struct Command *phead);
+struct Command *findCommandByName(char *name,struct Command *phead);		//链节查找函数声明
+void *voiceControl_thread(void *data);										//“语音控制”线程函数声明
+
+struct Command *cmdhead = NULL;					//创建“指令”链表全局变量
+
+int main()
+{
+	cmdhead = addVoiceControlToCommandLink(cmdhead);			//“语音控制”对象加入链表
+
+	pthread_t voiceControl_thread_t;					//存放线程 ID
+
+	pthread_create(&voiceControl_thread_t,NULL,voiceControl_thread,NULL);		//创建“语音控制”线程
+	pthread_join(voiceControl_thread_t, NULL);			//主函数等待“语音控制”线程退出
+	return 0;
+}
+
+//“语音控制”线程
+void *voiceControl_thread(void *data)	//没用到data  create创建线程没进行传参			
+{
+	int nread;
+	struct Command *voiceHandler = NULL;
+
+	voiceHandler = findCommandByName("voiceControl",cmdhead);		//寻找“语音控制”链节，返回给voiceHandler
+	if(voiceHandler == NULL){										//找不到
+		printf("find voiceHandler error\n");
+		pthread_exit(NULL);											//线程退出
+	}else{															//找到
+		if(voiceHandler->Init(voiceHandler) < 0){					//初始化
+			printf("voiceHandler init error\n");					//初始化失败
+			pthread_exit(NULL);										//线程退出
+		}
+
+		while(1){
+			nread = voiceHandler->getCommand(voiceHandler);						//读取指令
+			if(nread == 0){														//没接收到指令
+				printf("No command received\n");
+			}else{																//接收到指令
+				printf("Get command:%s\n",voiceHandler->command);
+			}
+		}
+	}
+}
+
+struct Command *findCommandByName(char *name,struct Command *phead)			//“控制方式”链表查找链节函数
+{
+	struct Command *tmp = phead;
+
+	if(phead == NULL){
+		return NULL;
+	}
+
+	while(tmp != NULL){
+		if(strcmp(name,tmp->commandName) == 0){
+			return tmp;
+		}
+		tmp = tmp->next;
+	}
+	return NULL;
+}

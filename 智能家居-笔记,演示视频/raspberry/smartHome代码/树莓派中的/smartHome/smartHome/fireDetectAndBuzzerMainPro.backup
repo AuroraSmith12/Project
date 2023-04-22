@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+#include "contrlEquipments.h"
+
+int main()
+{
+	if(wiringPiSetup() == -1){									//使用wiringPi库，需初始化硬件
+		printf("wiringPiSetup failed!\n");
+		return -1; 
+	}
+
+	struct Equipment *pequipHead = NULL;						//定义初始链表首端
+	//	pequipHead = addBathroomLightToEquipmentLink(pequipHead);
+	//	pequipHead = addSecondfloorLightToEquipmentLink(pequipHead);
+	//	pequipHead = addLivingroomLightToEquipmentLink(pequipHead);
+	//	pequipHead = addRestaurantLightToEquipmentLink(pequipHead);
+	pequipHead = addFireDetectionToEquipmentLink(pequipHead);	//“火焰传感器”加入设备链表
+	pequipHead = addBuzzerToEquipmentLink(pequipHead );			//“蜂鸣器”加入设备链表
+
+	int fireStatus;												//存放“火焰传感器”状态
+	char *fireName = "fireDetection";
+	char *buzzerName = "buzzer";
+	struct Equipment *firetmp = pequipHead;
+	struct Equipment *buztmp = pequipHead;
+
+	while(buztmp != NULL){										//寻找链表中蜂鸣器对应链节
+		if(strcmp(buzzerName,buztmp->equipName) == 0){
+			buztmp->Init(buztmp->pinNum);						//初始化“蜂鸣器”
+			break;
+		}
+		buztmp = buztmp->next;
+	}
+
+	while(firetmp != NULL){
+		if(strcmp(fireName,firetmp->equipName) == 0){
+			firetmp->Init(firetmp->pinNum);						//初始化火焰传感器的引脚为输入模式
+			while(1){
+				fireStatus = firetmp->readStatus(firetmp->pinNum);	//读取“火焰传感器”状态
+				if(fireStatus == 0){							//“火焰传感器”处于 0状态
+					buztmp->open(buztmp->pinNum);				//开启蜂鸣器
+				}else if(fireStatus == 1){						//“火焰传感器”处于 1状态
+					buztmp->close(buztmp->pinNum);				//关闭蜂鸣器
+				}
+				delay(1000);                      //有火蜂鸣器响一秒
+			}
+		}
+		firetmp = firetmp->next;
+	}
+
+	return 0;
+}
+

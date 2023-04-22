@@ -1,0 +1,526 @@
+libcurl_la-smb.lo: smb.c /usr/include/stdc-predef.h curl_setup.h \
+ curl_config.h ../include/curl/curl.h ../include/curl/curlver.h \
+ ../include/curl/system.h /usr/include/arm-linux-gnueabihf/sys/types.h \
+ /usr/include/features.h /usr/include/arm-linux-gnueabihf/sys/cdefs.h \
+ /usr/include/arm-linux-gnueabihf/bits/wordsize.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h \
+ /usr/include/arm-linux-gnueabihf/bits/types.h \
+ /usr/include/arm-linux-gnueabihf/bits/typesizes.h /usr/include/time.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h \
+ /usr/include/endian.h /usr/include/arm-linux-gnueabihf/bits/endian.h \
+ /usr/include/arm-linux-gnueabihf/bits/byteswap.h \
+ /usr/include/arm-linux-gnueabihf/bits/byteswap-16.h \
+ /usr/include/arm-linux-gnueabihf/sys/select.h \
+ /usr/include/arm-linux-gnueabihf/bits/select.h \
+ /usr/include/arm-linux-gnueabihf/bits/sigset.h \
+ /usr/include/arm-linux-gnueabihf/bits/time.h \
+ /usr/include/arm-linux-gnueabihf/sys/sysmacros.h \
+ /usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h \
+ /usr/include/arm-linux-gnueabihf/sys/socket.h \
+ /usr/include/arm-linux-gnueabihf/sys/uio.h \
+ /usr/include/arm-linux-gnueabihf/bits/uio.h \
+ /usr/include/arm-linux-gnueabihf/bits/socket.h \
+ /usr/include/arm-linux-gnueabihf/bits/socket_type.h \
+ /usr/include/arm-linux-gnueabihf/bits/sockaddr.h \
+ /usr/include/arm-linux-gnueabihf/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/arm-linux-gnueabihf/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/stdio.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include/stdarg.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdio_lim.h \
+ /usr/include/arm-linux-gnueabihf/bits/sys_errlist.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdio.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed/limits.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/arm-linux-gnueabihf/bits/posix1_lim.h \
+ /usr/include/arm-linux-gnueabihf/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/arm-linux-gnueabihf/bits/posix2_lim.h \
+ /usr/include/xlocale.h /usr/include/arm-linux-gnueabihf/sys/time.h \
+ ../include/curl/easy.h ../include/curl/multi.h ../include/curl/curl.h \
+ ../include/curl/urlapi.h ../include/curl/typecheck-gcc.h \
+ /usr/include/assert.h curl_setup_once.h /usr/include/stdlib.h \
+ /usr/include/arm-linux-gnueabihf/bits/waitflags.h \
+ /usr/include/arm-linux-gnueabihf/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdlib-bsearch.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdlib-float.h \
+ /usr/include/string.h /usr/include/arm-linux-gnueabihf/bits/string.h \
+ /usr/include/arm-linux-gnueabihf/bits/string2.h /usr/include/ctype.h \
+ /usr/include/errno.h /usr/include/arm-linux-gnueabihf/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/arm-linux-gnueabihf/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/arm-linux-gnueabihf/sys/stat.h \
+ /usr/include/arm-linux-gnueabihf/bits/stat.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include/stdbool.h \
+ /usr/include/unistd.h /usr/include/arm-linux-gnueabihf/bits/posix_opt.h \
+ /usr/include/arm-linux-gnueabihf/bits/environments.h \
+ /usr/include/arm-linux-gnueabihf/bits/confname.h /usr/include/getopt.h \
+ curl_ctype.h smb.h urldata.h cookie.h psl.h formdata.h \
+ /usr/include/netinet/in.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h \
+ /usr/include/stdint.h /usr/include/arm-linux-gnueabihf/bits/wchar.h \
+ /usr/include/arm-linux-gnueabihf/bits/in.h timeval.h http_chunks.h \
+ hostip.h hash.h llist.h curl_addrinfo.h /usr/include/netdb.h \
+ /usr/include/rpc/netdb.h /usr/include/arm-linux-gnueabihf/bits/netdb.h \
+ /usr/include/arpa/inet.h asyn.h /usr/include/setjmp.h \
+ /usr/include/arm-linux-gnueabihf/bits/setjmp.h splay.h dynbuf.h mime.h \
+ imap.h pingpong.h curl_sasl.h pop3.h smtp.h ftp.h file.h vssh/ssh.h \
+ ../lib/curl_setup.h http.h rtsp.h mqtt.h wildcard.h multihandle.h \
+ conncache.h socketpair.h quic.h sendf.h multiif.h connect.h nonblock.h \
+ sockaddr.h progress.h transfer.h vtls/vtls.h vtls/openssl.h \
+ ../lib/urldata.h vtls/gtls.h vtls/nssg.h vtls/gskit.h vtls/wolfssl.h \
+ vtls/schannel.h vtls/sectransp.h vtls/mbedtls.h vtls/mesalink.h \
+ vtls/bearssl.h curl_ntlm_core.h /usr/local/include/openssl/ssl.h \
+ /usr/local/include/openssl/e_os2.h \
+ /usr/local/include/openssl/opensslconf.h \
+ /usr/local/include/openssl/opensslv.h /usr/include/inttypes.h \
+ /usr/local/include/openssl/comp.h /usr/local/include/openssl/crypto.h \
+ /usr/local/include/openssl/safestack.h \
+ /usr/local/include/openssl/stack.h /usr/local/include/openssl/ossl_typ.h \
+ /usr/local/include/openssl/cryptoerr.h \
+ /usr/local/include/openssl/symhacks.h /usr/include/pthread.h \
+ /usr/include/sched.h /usr/include/arm-linux-gnueabihf/bits/sched.h \
+ /usr/local/include/openssl/comperr.h /usr/local/include/openssl/bio.h \
+ /usr/local/include/openssl/bioerr.h /usr/local/include/openssl/x509.h \
+ /usr/local/include/openssl/buffer.h \
+ /usr/local/include/openssl/buffererr.h /usr/local/include/openssl/evp.h \
+ /usr/local/include/openssl/evperr.h /usr/local/include/openssl/objects.h \
+ /usr/local/include/openssl/obj_mac.h /usr/local/include/openssl/asn1.h \
+ /usr/local/include/openssl/asn1err.h /usr/local/include/openssl/bn.h \
+ /usr/local/include/openssl/bnerr.h \
+ /usr/local/include/openssl/objectserr.h /usr/local/include/openssl/ec.h \
+ /usr/local/include/openssl/ecerr.h /usr/local/include/openssl/rsa.h \
+ /usr/local/include/openssl/rsaerr.h /usr/local/include/openssl/dsa.h \
+ /usr/local/include/openssl/dh.h /usr/local/include/openssl/dherr.h \
+ /usr/local/include/openssl/dsaerr.h /usr/local/include/openssl/sha.h \
+ /usr/local/include/openssl/x509err.h \
+ /usr/local/include/openssl/x509_vfy.h /usr/local/include/openssl/lhash.h \
+ /usr/local/include/openssl/pkcs7.h /usr/local/include/openssl/pkcs7err.h \
+ /usr/local/include/openssl/pem.h /usr/local/include/openssl/pemerr.h \
+ /usr/local/include/openssl/hmac.h /usr/local/include/openssl/async.h \
+ /usr/local/include/openssl/asyncerr.h /usr/local/include/openssl/ct.h \
+ /usr/local/include/openssl/cterr.h /usr/local/include/openssl/sslerr.h \
+ /usr/local/include/openssl/ssl2.h /usr/local/include/openssl/ssl3.h \
+ /usr/local/include/openssl/tls1.h /usr/local/include/openssl/dtls1.h \
+ /usr/local/include/openssl/srtp.h escape.h curl_endian.h curl_memory.h \
+ memdebug.h
+
+/usr/include/stdc-predef.h:
+
+curl_setup.h:
+
+curl_config.h:
+
+../include/curl/curl.h:
+
+../include/curl/curlver.h:
+
+../include/curl/system.h:
+
+/usr/include/arm-linux-gnueabihf/sys/types.h:
+
+/usr/include/features.h:
+
+/usr/include/arm-linux-gnueabihf/sys/cdefs.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wordsize.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types.h:
+
+/usr/include/arm-linux-gnueabihf/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include/stddef.h:
+
+/usr/include/endian.h:
+
+/usr/include/arm-linux-gnueabihf/bits/endian.h:
+
+/usr/include/arm-linux-gnueabihf/bits/byteswap.h:
+
+/usr/include/arm-linux-gnueabihf/bits/byteswap-16.h:
+
+/usr/include/arm-linux-gnueabihf/sys/select.h:
+
+/usr/include/arm-linux-gnueabihf/bits/select.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sigset.h:
+
+/usr/include/arm-linux-gnueabihf/bits/time.h:
+
+/usr/include/arm-linux-gnueabihf/sys/sysmacros.h:
+
+/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:
+
+/usr/include/arm-linux-gnueabihf/sys/socket.h:
+
+/usr/include/arm-linux-gnueabihf/sys/uio.h:
+
+/usr/include/arm-linux-gnueabihf/bits/uio.h:
+
+/usr/include/arm-linux-gnueabihf/bits/socket.h:
+
+/usr/include/arm-linux-gnueabihf/bits/socket_type.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sockaddr.h:
+
+/usr/include/arm-linux-gnueabihf/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/arm-linux-gnueabihf/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdarg.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdio_lim.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sys_errlist.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdio.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed/limits.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/arm-linux-gnueabihf/bits/posix1_lim.h:
+
+/usr/include/arm-linux-gnueabihf/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/arm-linux-gnueabihf/bits/posix2_lim.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/arm-linux-gnueabihf/sys/time.h:
+
+../include/curl/easy.h:
+
+../include/curl/multi.h:
+
+../include/curl/curl.h:
+
+../include/curl/urlapi.h:
+
+../include/curl/typecheck-gcc.h:
+
+/usr/include/assert.h:
+
+curl_setup_once.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/arm-linux-gnueabihf/bits/waitflags.h:
+
+/usr/include/arm-linux-gnueabihf/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdlib-bsearch.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdlib-float.h:
+
+/usr/include/string.h:
+
+/usr/include/arm-linux-gnueabihf/bits/string.h:
+
+/usr/include/arm-linux-gnueabihf/bits/string2.h:
+
+/usr/include/ctype.h:
+
+/usr/include/errno.h:
+
+/usr/include/arm-linux-gnueabihf/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/arm-linux-gnueabihf/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/arm-linux-gnueabihf/sys/stat.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stat.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdbool.h:
+
+/usr/include/unistd.h:
+
+/usr/include/arm-linux-gnueabihf/bits/posix_opt.h:
+
+/usr/include/arm-linux-gnueabihf/bits/environments.h:
+
+/usr/include/arm-linux-gnueabihf/bits/confname.h:
+
+/usr/include/getopt.h:
+
+curl_ctype.h:
+
+smb.h:
+
+urldata.h:
+
+cookie.h:
+
+psl.h:
+
+formdata.h:
+
+/usr/include/netinet/in.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/6/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wchar.h:
+
+/usr/include/arm-linux-gnueabihf/bits/in.h:
+
+timeval.h:
+
+http_chunks.h:
+
+hostip.h:
+
+hash.h:
+
+llist.h:
+
+curl_addrinfo.h:
+
+/usr/include/netdb.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/arm-linux-gnueabihf/bits/netdb.h:
+
+/usr/include/arpa/inet.h:
+
+asyn.h:
+
+/usr/include/setjmp.h:
+
+/usr/include/arm-linux-gnueabihf/bits/setjmp.h:
+
+splay.h:
+
+dynbuf.h:
+
+mime.h:
+
+imap.h:
+
+pingpong.h:
+
+curl_sasl.h:
+
+pop3.h:
+
+smtp.h:
+
+ftp.h:
+
+file.h:
+
+vssh/ssh.h:
+
+../lib/curl_setup.h:
+
+http.h:
+
+rtsp.h:
+
+mqtt.h:
+
+wildcard.h:
+
+multihandle.h:
+
+conncache.h:
+
+socketpair.h:
+
+quic.h:
+
+sendf.h:
+
+multiif.h:
+
+connect.h:
+
+nonblock.h:
+
+sockaddr.h:
+
+progress.h:
+
+transfer.h:
+
+vtls/vtls.h:
+
+vtls/openssl.h:
+
+../lib/urldata.h:
+
+vtls/gtls.h:
+
+vtls/nssg.h:
+
+vtls/gskit.h:
+
+vtls/wolfssl.h:
+
+vtls/schannel.h:
+
+vtls/sectransp.h:
+
+vtls/mbedtls.h:
+
+vtls/mesalink.h:
+
+vtls/bearssl.h:
+
+curl_ntlm_core.h:
+
+/usr/local/include/openssl/ssl.h:
+
+/usr/local/include/openssl/e_os2.h:
+
+/usr/local/include/openssl/opensslconf.h:
+
+/usr/local/include/openssl/opensslv.h:
+
+/usr/include/inttypes.h:
+
+/usr/local/include/openssl/comp.h:
+
+/usr/local/include/openssl/crypto.h:
+
+/usr/local/include/openssl/safestack.h:
+
+/usr/local/include/openssl/stack.h:
+
+/usr/local/include/openssl/ossl_typ.h:
+
+/usr/local/include/openssl/cryptoerr.h:
+
+/usr/local/include/openssl/symhacks.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/arm-linux-gnueabihf/bits/sched.h:
+
+/usr/local/include/openssl/comperr.h:
+
+/usr/local/include/openssl/bio.h:
+
+/usr/local/include/openssl/bioerr.h:
+
+/usr/local/include/openssl/x509.h:
+
+/usr/local/include/openssl/buffer.h:
+
+/usr/local/include/openssl/buffererr.h:
+
+/usr/local/include/openssl/evp.h:
+
+/usr/local/include/openssl/evperr.h:
+
+/usr/local/include/openssl/objects.h:
+
+/usr/local/include/openssl/obj_mac.h:
+
+/usr/local/include/openssl/asn1.h:
+
+/usr/local/include/openssl/asn1err.h:
+
+/usr/local/include/openssl/bn.h:
+
+/usr/local/include/openssl/bnerr.h:
+
+/usr/local/include/openssl/objectserr.h:
+
+/usr/local/include/openssl/ec.h:
+
+/usr/local/include/openssl/ecerr.h:
+
+/usr/local/include/openssl/rsa.h:
+
+/usr/local/include/openssl/rsaerr.h:
+
+/usr/local/include/openssl/dsa.h:
+
+/usr/local/include/openssl/dh.h:
+
+/usr/local/include/openssl/dherr.h:
+
+/usr/local/include/openssl/dsaerr.h:
+
+/usr/local/include/openssl/sha.h:
+
+/usr/local/include/openssl/x509err.h:
+
+/usr/local/include/openssl/x509_vfy.h:
+
+/usr/local/include/openssl/lhash.h:
+
+/usr/local/include/openssl/pkcs7.h:
+
+/usr/local/include/openssl/pkcs7err.h:
+
+/usr/local/include/openssl/pem.h:
+
+/usr/local/include/openssl/pemerr.h:
+
+/usr/local/include/openssl/hmac.h:
+
+/usr/local/include/openssl/async.h:
+
+/usr/local/include/openssl/asyncerr.h:
+
+/usr/local/include/openssl/ct.h:
+
+/usr/local/include/openssl/cterr.h:
+
+/usr/local/include/openssl/sslerr.h:
+
+/usr/local/include/openssl/ssl2.h:
+
+/usr/local/include/openssl/ssl3.h:
+
+/usr/local/include/openssl/tls1.h:
+
+/usr/local/include/openssl/dtls1.h:
+
+/usr/local/include/openssl/srtp.h:
+
+escape.h:
+
+curl_endian.h:
+
+curl_memory.h:
+
+memdebug.h:
