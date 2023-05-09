@@ -8,6 +8,12 @@
 
 ![10](D:\Desktop\搭建ESP-12E外围电路\pic\10.jpg)
 
+
+
+## PCB:
+
+![11](D:\Desktop\搭建ESP-12E外围电路\pic\11.png)
+
 ## 参考的原理图:
 
 ![2](D:\Desktop\搭建ESP-12E外围电路\pic\2.png)
