@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "../MCU code/ESP32Code/ESP32Code/ESP32Demo/ESP32Demo"
+		},
+		{
+			"name": "1.ESP32_Touch",
+			"path": "../MCU code/ESP32Code/ESP32Code/1.ESP32_Touch"
+		},
+		{
+			"name": "2.ESP32_Timer_PWM",
+			"path": "../MCU code/ESP32Code/ESP32Code/2.ESP32_Timer_PWM"
+		},
+		{
+			"name": "3.ESP32_WiFi_JSON",
+			"path": "学习ESP32笔记/B站的资料/ESP32_Code-main/ESP32_Code-main/2.Code/3.ESP32_WiFi_JSON"
+		},
+		{
+			"name": "4.ESP32_BLE",
+			"path": "学习ESP32笔记/B站的资料/ESP32_Code-main/ESP32_Code-main/2.Code/4.ESP32_BLE"
+		},
+		{
+			"name": "5.ESP32_PlatformIODoc",
+			"path": "学习ESP32笔记/B站的资料/ESP32_Code-main/ESP32_Code-main/2.Code/5.ESP32_PlatformIODoc"
+		},
+		{
+			"name": "4.ESP32_BlueTooth",
+			"path": "学习ESP32笔记/B站的资料/ESP32_Code-main/ESP32_Code-main/2.Code/4.ESP32_BlueTooth"
+		}
+	],
+	"settings": {}
+}
